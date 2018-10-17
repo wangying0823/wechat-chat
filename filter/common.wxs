@@ -1,0 +1,78 @@
+var common = {
+  date: {
+    // 聊天时间过滤器
+    chatDateFilter: function (time,msgList,index){
+      if (time) {
+        if (index == 0) {
+          return time;
+        } else if (msgList[index - 1] && msgList[index - 1].time) {
+          if (time - msgList[index - 1].time > 5 * 60 * 1000) {
+            return time;
+          }
+        } 
+      }
+      return null;
+    },
+    // 转换年月日
+    formatTime: function(time) {
+      var date = getDate(time);
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var hour = date.getHours();
+      var minute = date.getMinutes();
+      var second = date.getSeconds();
+      var dateStr = [year, month, day].map(function(item){
+        return item;
+      }).join('/') + ' ' + [hour, minute, second].map(function (item) {
+        return item<10?'0'+item:item;
+      }).join(':');
+      var dateStrLen = dateStr.length;
+      if (dateStrLen >= 18) {
+        dateStr = dateStr.substring(0, dateStr.length - 3);
+      }
+      if (common.date.isToday(dateStr)) { //是今天   
+        dateStr = dateStr.substring(11, dateStrLen);
+        var hours = dateStr.substring(0,2);
+        console.log(hours.length)
+        if (hours<6){
+          dateStr = '凌晨 ' + dateStr;
+        } else if (hours >= 6 && hours <12){
+          dateStr = '上午 ' + dateStr;
+        } else if (hours >= 12 && hours < 18){
+          dateStr = '下午 ' + dateStr;
+        }else {
+          dateStr = '晚上 ' + dateStr;
+        }
+        return dateStr;
+      } else if (common.date.isThisYear(dateStr)) { //是今年
+        if (dateStr.indexOf('/') > -1) {
+          dateStr = dateStr.split('/').join('-');
+        }
+        return dateStr.substring(5, dateStr.length);
+      } else {
+        if (dateStr.indexOf('/') > -1) {
+          dateStr = dateStr.split('/').join('-');
+        }
+        return dateStr;
+      }
+    },
+    isToday: function (dateStr) { //今天
+      return getDate().toDateString() === getDate(dateStr).toDateString()
+    },
+    isThisYear: function (dateStr) { //今年
+      return getDate().getFullYear() === getDate(dateStr).getFullYear()
+    },
+  },
+  array: {
+    // 截取数组(item当前数组、len截取几个)
+    spliceArray: function (item, len) {
+      if (!item) return;
+      return newArray = item.slice(0, len);
+    }
+  }
+}
+module.exports = {
+  date: common.date,
+  array: common.array
+}

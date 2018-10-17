@@ -1,0 +1,29 @@
+@import "../../modules/chat-input/chat-input.wxss";
+@import "../../modules/chat-list/chat-item.wxss";
+page {
+  background-color: #EFEFEF;
+}
+.chat-container{
+  width: 100vw;
+  overflow: hidden;
+}
+.other-services{
+  width: 100vw;
+  height: 30px;
+  position: fixed;
+  bottom: 53px;
+}
+.other-services swiper-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content-info{
+  padding: 8rpx 20rpx;
+  background: #fff;
+  border-radius: 200rpx;
+  font-size:14px;
+  color: #333;
+  display: inline-block;
+  text-align: center;
+}

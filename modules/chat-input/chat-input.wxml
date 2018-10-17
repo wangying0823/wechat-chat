@@ -1,0 +1,24 @@
+<import src="voice.wxml" />
+<template name="chat-input">
+  <view class="input-flex-column">
+    <view class="input-text-voice-super">
+      <block wx:if="{{showVoicePart}}">
+        <!--左侧输入状态的图片切换-->
+        <image src="../../image/chat/voice/{{inputObj.inputStatus==='voice'?'keyboard':'voice'}}.png" class="extra-btn-style" bindtap="changeInputWayEvent" />
+          <!--控制显示语音输入-->
+          <block wx:if="{{inputObj.inputStatus==='voice'}}">
+            <template is="voice" data="{{voiceObj:inputObj.voiceObj,canUsePress:inputObj.canUsePress}}" />
+          </block>
+      </block>
+      <!--控制显示文本输入-->
+      <input wx:if="{{inputObj.inputStatus==='text'}}"
+          class="chat-input-style" style="margin-left:{{showVoicePart?0:16}}rpx;"
+          maxlength="500" type="text" confirm-type="发送" value="{{textMessage}}" bindconfirm="chatInputSendTextMessage" bindfocus="chatInputBindFocusEvent" bindblur="chatInputBindBlurEvent" bindinput="chatInputGetValueEvent" placeholder='请输入消息...' cursor-spacing="20"/>
+      <!-- <image src="../../image/chat/btn_send.png"   /> -->
+      <button class="btn-send" bindtap="chatInputTapSend">发送</button>
+    </view>
+  </view>
+  <button class='authorization' bindgetuserinfo='getUserInfo' open-type="getUserInfo" wx:if="{{isAuth}}"></button>
+</template>
+
+

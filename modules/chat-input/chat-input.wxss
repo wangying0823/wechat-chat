@@ -1,0 +1,66 @@
+@import "voice.wxss";
+input{
+  padding-top: 10rpx;
+  padding-bottom:10rpx;
+  width: 100%;
+}
+.extra-btn-style{
+  width: 66rpx;
+  height: 66rpx;
+  padding: 18rpx 15rpx;
+  display: flex;
+  flex-shrink:0;
+}
+.input-text-voice-super{
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 100%;
+  align-items: center;
+  height:50px;
+}
+.input-flex-column{
+  width:100%;
+  display: flex;
+  flex-direction:column;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+}
+.list-divide-line {
+  width: 100%;
+  height: 1rpx;
+  background-color: #dddddd;
+}
+
+.chat-input-style{
+  border-radius:10rpx;
+  border:1rpx solid gainsboro;
+  margin:0 9px;
+  height: 32rpx;
+  padding-left: 16rpx;
+  min-height: 51rpx;
+  background-color: #EFEFEF;
+  margin-right: 16rpx;
+  font-family:PingFangSC-Regular;
+  font-size:14px;
+  color:#666666;
+}
+
+.btn-send{
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.authorization{
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+}

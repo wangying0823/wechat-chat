@@ -1,0 +1,13 @@
+<import src="../../modules/chat-list/chat-item.wxml"/>
+<import src="../../modules/chat-input/chat-input.wxml" />
+<view class='chat-container'>
+  <scroll-view scroll-y style="height: {{systemInfo.windowHeight - 85}}px;width: {{systemInfo.windowWidth + 20}}px;" scroll-with-animation scroll-top="{{scrollTop}}">
+    <view style="padding-right: 20px;">
+      <block wx:for="{{chatItems}}" wx:key="{{index}}">
+        <template is="chat-item"
+                  data="{{index:index,item:item,chatItems:chatItems,userInfo: userInfo, systemInfo: systemInfo}}"/>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<template is="chat-input" data="{{inputObj:inputObj,textMessage:textMessage,showVoicePart:true,isAuth: isAuth}}" />

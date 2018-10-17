@@ -1,0 +1,19 @@
+{
+  "pages": [  
+    "pages/chat/chat"
+  ],
+  "window": {
+    "navigationBarTitleText": "聊天",
+    "backgroundTextStyle": "light"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.1.0",
+      "provider": "wx069ba97219f66d99"
+    },
+    "wxparserPlugin": {
+      "version": "0.2.1",
+      "provider": "wx9d4d4ffa781ff3ac"
+    }
+  }
+}

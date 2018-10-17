@@ -1,0 +1,83 @@
+/* 普通消息 */
+.chat-time{
+  display: flex;
+  justify-content: center;
+  padding-top: 30rpx;
+}
+.chat-time text{
+  padding: 6rpx 10rpx;
+  background:#dbdbdb;
+  border-radius:2px;
+  font-size:12px;
+  color:#4a4a4a;
+  width: auto;
+}
+.infoList{
+  width:100%;
+  padding: 7rpx 0;
+  position: relative;
+  font-size: 16px;
+  text-align: left;
+}
+.infoList:last-child{
+  margin-bottom:30rpx;
+}     
+.content{
+  max-width: 450rpx;
+  height: auto;
+  background:#fff;
+  line-height: 44rpx;
+  padding: 10rpx 20rpx;
+  color:#4a4a4a;
+  word-break:break-all;
+  position: relative;
+  margin-left: 130rpx;
+  margin-top: 30rpx;
+  border-radius:5px;
+  display: inline-block;
+  font-size: 14px;
+}
+.content:after{
+  content: '';
+  position: absolute;
+  left: -16rpx;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid dashed dashed;
+  border-color: #fff transparent transparent;
+  overflow: hidden;
+  border-width: 20rpx;
+}
+.myRightContent{
+  background: #ad1f24;
+  color: #fff;
+  margin-right: 130rpx;
+  margin-left: 0;
+}
+.myRightContent:after{
+  right: -16rpx;
+  left: auto;
+  border-color: #ad1f24 transparent transparent;
+}
+.max-width{
+  max-width: 400rpx;
+}
+.userinfo {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  left: 24rpx;
+  top: 20rpx;
+}
+.user-img{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.myRight{
+  left: auto;
+  right: 24rpx;
+}

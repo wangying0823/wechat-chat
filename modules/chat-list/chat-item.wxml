@@ -1,0 +1,15 @@
+<wxs src="../../filter/common.wxs" module="filter" />
+<template name="chat-item">
+  <view class="chat-time" wx:if="{{filter.date.chatDateFilter(item.time,chatItems,index)}}">
+    <text>{{filter.date.formatTime(filter.date.chatDateFilter(item.time,chatItems,index))}}</text>
+  </view>
+  <!-- 文本 dataType=text -->
+  <view class="infoList {{item.isMy?'text-right':''}}">
+    <view class="userinfo {{item.isMy?'myRight':''}}">  
+      <image src="{{item.isMy?userInfo.avatarUrl:'../../image/chat/robot.png'}}" class='user-img'></image>
+    </view> 
+    <view class="content text-left {{item.isMy?'myRightContent':''}} {{systemInfo.windowWidth<=320?'max-width':''}}">
+      <wxparser rich-text="{{item.content}}"/>
+    </view>
+  </view><!-- 文本 -->
+</template>
